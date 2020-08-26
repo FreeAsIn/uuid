@@ -2,6 +2,10 @@
   "name": "@freeasin/uuid",
   "version": "0.1.0",
   "description": "Simple UUID generation",
+  "repository": {
+    "type": "git",
+    "url": "github:freeasin/uuid"
+  },
   "main": "dist/commonjs.js",
   "module": "dist/es6.js",
   "types": "dist/uuid.d.ts",
