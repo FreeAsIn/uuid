@@ -2,7 +2,18 @@
   "name": "@freeasin/uuid",
   "version": "0.1.0",
   "description": "Simple UUID generation",
-  "main": "dist/uuid.js",
+  "main": "dist/commonjs.js",
+  "module": "dist/es6.js",
+  "types": "dist/uuid.d.ts",
+  "scripts": {
+    "build": "npm run build:posix",
+
+    "prebuild:posix": "rm -r ./dist",
+    "build:posix": "tsc --build tsconfig.commonjs.json && mv ./dist/uuid.js ./dist/commonjs.js && tsc --build tsconfig.es6.json && mv ./dist/uuid.js ./dist/es6.js",
+
+    "prebuild:windows": "rmdir ./dist",
+    "build:windows": "tsc --build tsconfig.commonjs.json && rename ./dist/uuid.js ./dist/commonjs.js && tsc --build tsconfig.es6.json && rename ./dist/uuid.js ./dist/es6.js"
+  },
   "author": "Dave Hermann",
   "license": "MIT",
   "devDependencies": {
